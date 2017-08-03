@@ -23,6 +23,30 @@ public class Diff {
 		return ausgabe;
 	}
 	
+	public Diff plus (Diff v) {
+		
+		Diff ausgabe = new Diff((this.getF() + v.getF()) , (this.getDf() + v.getDf()));
+		return ausgabe;
+		
+	}
+	public Diff minus (Diff v) {
+	
+		Diff ausgabe = new Diff((this.getF() - v.getF()) , (this.getDf() - v.getDf()));
+		return ausgabe;
+	}
+	public Diff times (Diff v) {
+		
+		Diff ausgabe = new Diff((this.getF() * v.getF()) , (this.getF() * v.getDf() + this.getDf() * v.getF()));
+		return ausgabe;
+		
+	}
+	public Diff divby (Diff v) {
+		
+		Diff ausgabe = new Diff((this.getF() / v.getF()) , ((this.getDf() - this.getF() * v.getDf()) / v.getF()));
+		return ausgabe;
+		
+	}
+	
 	public double getF() {
 		return funktionswert;
 	}
